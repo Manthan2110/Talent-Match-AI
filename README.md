@@ -68,15 +68,6 @@ User ➡️ Flask App ➡️ ResumeParser (Gemini) ➡️ JSON Output
 
 ---
 
-## Tech Stack
-
-Python[https://www.python.org/]
-Flask[https://flask.palletsprojects.com/en/stable/]
-Tailwind CSS[https://tailwindcss.com/]
-Gemini Ai[https://ai.google.dev/]
-
----
-
 ## 🚀 Installation & Setup
 
 ### 1️⃣ Clone repo
@@ -146,17 +137,10 @@ python app.py
 
 ## 👨‍💻 Author
 
-Made with 💼 and ❤️ by Manthan Jadav
-📫 LinkedIn[https://www.linkedin.com/in/manthanjadav/] | ✉️ manthanjadav746@gmail.com [mailto:manthanjadav746@gmail.com]
+- Made with 💼 and ❤️ by Manthan Jadav
+- 📫 LinkedIn[https://www.linkedin.com/in/manthanjadav/] | ✉️ manthanjadav746@gmail.com[mailto:manthanjadav746@gmail.com]
 ---
 
 ## 📜 License
 This project is licensed under the MIT License.
 Parse freely. Fork happily. Contribute generously. 😄
-
-
-
-
-
-
-
