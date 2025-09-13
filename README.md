@@ -138,7 +138,9 @@ python app.py
 ## 👨‍💻 Author
 
 - Made with 💼 and ❤️ by Manthan Jadav
-- 📫 LinkedIn[https://www.linkedin.com/in/manthanjadav/] | ✉️ manthanjadav746@gmail.com[mailto:manthanjadav746@gmail.com]
+- 📫 LinkedIn[https://www.linkedin.com/in/manthanjadav/]
+-  ✉️ manthanjadav746@gmail.com[mailto:manthanjadav746@gmail.com]
+-  
 ---
 
 ## 📜 License
