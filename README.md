@@ -140,7 +140,7 @@ python app.py
 - Made with 💼 and ❤️ by Manthan Jadav
 - 📫 LinkedIn[https://www.linkedin.com/in/manthanjadav/]
 -  ✉️ manthanjadav746@gmail.com[mailto:manthanjadav746@gmail.com]
--  
+  
 ---
 
 ## 📜 License
