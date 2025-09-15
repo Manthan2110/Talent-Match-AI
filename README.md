@@ -1,74 +1,70 @@
-# 🧑‍💼 Talent-Match-AI – AI-Powered Resume Parser  
-
+# 🧑‍💼 ResumeHub – AI-Powered Resume Parser & Matcher
 *“Reading resumes is boring. Let AI do it for you.”* 🤖📄  
-
-Talent-Match-AI is your **AI-powered recruiter’s assistant** that extracts structured data from resumes in **seconds**. Built with 🧠 Google Gemini, 🖥️ Flask, and 🎨 TailwindCSS, it helps you parse PDFs into clean JSON and human-friendly summaries.  
+ResumeHub is your **AI-powered recruiting assistant** that extracts structured data from resumes **and** matches resumes against job descriptions with advanced AI. Built with 🧠 Google Gemini, 🖥️ Flask, and 🎨 TailwindCSS, it helps recruiters and candidates alike to parse, score, and improve resumes faster than ever.  
 
 ---
 
 ## 🧠 Problem Statement  
-
-Recruiters and HR teams spend **hours** manually scanning resumes for skills, experience, and education. This is **tedious, error-prone, and slow**.  
-
-> ❓ *“Can we make resume screening as easy as uploading a file?”*  
-> ✅ *Answer: Yes. Talent-Match-AI can.*  
+Recruiters spend hours parsing resumes and manually shortlisting candidates. This process is **slow, error-prone, and resource-intensive.**  
+> ❓ *“Can resume screening and matching be automated with AI?”*  
+> ✅ *Answer: Yes, with ResumeHub.*
 
 ---
 
 ## 🌐 Website Preview  
-<img width="1913" height="1012" alt="image" src="https://github.com/user-attachments/assets/953b2579-bff8-4649-bb0e-2c247c8b7381" />
-
-### Structured Summary
-<img width="1918" height="1017" alt="image" src="https://github.com/user-attachments/assets/a3f8bada-d0b4-4c34-86f0-4438f1ddc90d" />
-
-
 
 ---
 
 ## 📦 Features  
-
-- 📄 **PDF Resume Upload** – Drag, drop, done.  
-- 🤖 **AI-Powered Parsing** – Uses Google Gemini for accurate data extraction.  
-- 👤 **Personal Info Extraction** – Name, email, phone, LinkedIn, GitHub, location.  
-- 🎓 **Education & Experience** – Degrees, roles, companies, and timelines.  
-- 💡 **Skills & Projects** – Technical skills, frameworks, tools, and key projects.  
-- 📜 **Certifications & Extras** – Courses, awards, and achievements.  
-- 🎨 **Modern UI** – Clean TailwindCSS layout with instant feedback.  
+- 📄 **Resume Upload & Parsing** – Extracts structured details (personal info, education, experience, skills) from PDFs, DOCX, TXT  
+- 🤖 **AI-Powered Parsing** – Uses Google Gemini for accurate and fast extraction  
+- 👥 **Resume Matching** – Match multiple resumes against job descriptions using TF-IDF and AI semantic similarity  
+- 🔎 **Missing Keywords Detection** – Highlights job description keywords missing from the resumes  
+- 💡 **AI Improvement Suggestions** – Provides actionable tips to strengthen resume content  
+- 📜 **Clean UI** – Modern responsive interface with TailwindCSS and real-time feedback  
 
 ---
 
 ## 🏗️ User Flow  
 
+
+
 ```text
 User ➡️ Flask App ➡️ ResumeParser (Gemini) ➡️ JSON Output  
-                                ⬆️                   ⬇️
-                            PDF Upload          Structured Insights
+                   ⬇️            ⬆️                   ⬇️
+          Resume Matching      PDF Upload          Structured Insights
 ```
 
+
 ---
+
 ## Project Files
 
-| File                   | Description                                   |
-| ---------------------- | --------------------------------------------- |
-| `app.py`               | Flask app entry point (routes & server setup) |
-| `resumeparser.py`      | AI-powered resume parsing logic               |
-| `templates/index.html` | TailwindCSS-powered UI                        |
-| `config.yaml`          | Stores Gemini API key (ignored in git)        |
-| `requirements.txt`     | Python dependencies                           |
-| `__DATA__/`            | Uploaded resumes directory                    |
+| File                    | Description                                   |
+|-------------------------|-----------------------------------------------|
+| `app.py`                | Flask app with resume parse & matcher routes  |
+| `resumeparser.py`       | AI-powered resume parsing logic                |
+| `templates/*.html`      | Frontend UI built with TailwindCSS + Jinja2  |
+| `static/`               | Static assets like CSS, images                  |
+| `config.yaml`           | Stores Gemini API key  (ignored in git)       |
+| `requirements.txt`      | Python dependencies                            |
+| `__DATA__/`             | Directory for uploaded resumes                 |
 
 ---
 
 ## 🔐 Technologies Used
-- 🧠 AI Model: Google Gemini (google-generativeai)
-- 🖥️ Backend: Flask
-- 📄 PDF Processing: PyPDF
-- ⚙️ Config: PyYAML
-- 🎨 Frontend: TailwindCSS + Jinja2
+
+- 🧠 AI engine: Google Gemini (google-generativeai)  
+- 🖥️ Backend: Flask  
+- 📄 PDF Parsing: PyPDF, PyPDF2  
+- 🖥️ NLP: sklearn TF-IDF, cosine similarity, custom keyword extraction  
+- 🎨 Frontend: TailwindCSS, Jinja2 Templates  
+- ⚙️ Config & Env: PyYAML, python-dotenv  
 
 ---
 
 ## 🚀 Installation & Setup
+
 
 ### 1️⃣ Clone repo
 ```bash
@@ -121,28 +117,44 @@ python app.py
 }
 ```
 
---- 
 
-## Future Enhancement
+---
 
-| Feature                       | Description                            |
-| ----------------------------- | -------------------------------------- |
-| 📊 **ATS Score**              | Rate resumes against job descriptions  |
-| 🌍 **Multi-language Support** | Parse resumes in Hindi, French, etc.   |
-| 🧠 **NER Fine-Tuning**        | Custom ML for better field accuracy    |
-| 📈 **Recruiter Dashboard**    | Visual analytics of parsed resumes     |
-| 🔎 **Job Matching**           | Suggest jobs based on extracted skills |
+## 📈 How It Works (High Level)
+
+- User uploads resume(s) and provides job description text  
+- Flask backend extracts raw text and parses structured data via Gemini AI  
+- Extracted data is vectorized with TF-IDF for cosine similarity matching  
+- Matching resumes are ranked with percentage scores  
+- Missing keywords from job description vs resume skills detected  
+- AI generates improvement suggestions (currently static prototype)  
+- Results and insights displayed with visual progress bars and highlights  
+
+---
+
+## 🎯 Future Enhancements
+
+| Feature                     | Description                                    |
+|-----------------------------|------------------------------------------------|
+| 📊 ATS Score Computation    | Calculate precise resume-job fit scores        |
+| 🌎 Multi-language Parsing   | Support parsing resumes in multiple languages  |
+| 🧠 Transformer Embeddings   | Use semantic embeddings (e.g. SBERT) for matching |
+| 📊 Recruiter Dashboard      | Analytics about candidates and hiring funnels  |
+| ✉️ Interview Scheduling     | Coordinate scheduling and feedback per candidate |
+| 🤝 Collaborative Review     | Allow multiple users to comment on resumes      |
+| 🔎 Job Recommendations      | Suggest jobs to candidates based on skills      |
 
 ---
 
 ## 👨‍💻 Author
 
-- Made with 💼 and ❤️ by Manthan Jadav
-- 📫 LinkedIn[https://www.linkedin.com/in/manthanjadav/]
--  ✉️ manthanjadav746@gmail.com[mailto:manthanjadav746@gmail.com]
-  
+Made with 💼 and ❤️ by Manthan Jadav  
+- [LinkedIn](https://www.linkedin.com/in/manthanjadav/)  
+- 📧 Email: manthanjadav746@gmail.com
+
 ---
 
 ## 📜 License
-This project is licensed under the MIT License.
-Parse freely. Fork happily. Contribute generously. 😄
+
+This project is licensed under the MIT License.  
+Parse freely. Fork happily. Contribute generously! 😄
