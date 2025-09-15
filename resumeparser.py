@@ -1,21 +1,16 @@
 import google.generativeai as genai
 import yaml, os, json, re
 
+# Load Gemini API key from environment or config.yaml
+CONFIG_PATH = "config.yaml"
 
-CONFIG_PATH = r"config.yaml"
-
-
-api_key = os.getenv("GOOGLE_API_KEY")  # 1st: try environment variable
-
-
-if not api_key and os.path.exists(CONFIG_PATH):  # 2nd: try YAML
+api_key = os.getenv("GEMINI_API_KEY")
+if not api_key and os.path.exists(CONFIG_PATH):
     with open(CONFIG_PATH) as file:
         data = yaml.safe_load(file)
         api_key = data.get("GEMINI_API_KEY")
-
-
 if not api_key:
-    raise ValueError("❌ No Gemini API key found. Set GOOGLE_API_KEY env variable or config.yaml")
+    raise ValueError("No Gemini API key found in environment or config.yaml!")
 
 
 genai.configure(api_key=api_key)
