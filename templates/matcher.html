@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume Matcher - ResumeHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="bg-gray-800/80 backdrop-blur-md border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <img class="h-8 w-8" src="https://res.cloudinary.com/dtsuvx8dz/image/upload/v1706986565/hqatxpsjdg3zeql20jfe.png" alt="ResumeHub" />
+                    <span class="text-white text-xl font-bold">ResumeHub</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="/" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="/parser" class="text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">Resume Parser</a>
+                    <a href="/matcher" class="text-blue-400 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">Resume Matcher</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="/" class="block text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                <a href="/parser" class="block text-gray-300 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">Resume Parser</a>
+                <a href="/matcher" class="block text-blue-400 hover:text-blue-300 px-3 py-2 rounded-md text-sm font-medium">Resume Matcher</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Upper Input Section -->
+    <div class="relative isolate overflow-hidden bg-gray-900">
+        <svg class="absolute inset-0 -z-10 h-full w-full stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+            <defs>
+                <pattern id="983e3e4c-de6d-4c3f-8d64-b9761d1534cc" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+                    <path d="M.5 200V.5H200" fill="none" />
+                </pattern>
+            </defs>
+            <svg x="50%" y="-1" class="overflow-visible fill-gray-800/20">
+                <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+                      stroke-width="0" />
+            </svg>
+            <rect width="100%" height="100%" stroke-width="0" fill="url(#983e3e4c-de6d-4c3f-8d64-b9761d1534cc)" />
+        </svg>
+        <div class="absolute left-[calc(50%-4rem)] top-10 -z-10 transform-gpu blur-3xl sm:left-[calc(50%-18rem)] lg:left-48 lg:top-[calc(50%-30rem)] xl:left-[calc(50%-24rem)]"
+             aria-hidden="true">
+            <div class="aspect-[1108/632] w-[69.25rem] bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-20"
+                 style="clip-path: polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div>
+        </div>
+        <div class="mx-auto max-w-7xl px-6 pb-8 pt-10 sm:pb-12 lg:px-8 lg:py-20">
+            <div class="mx-auto max-w-4xl text-center">
+                <div class="mt-16 sm:mt-24 lg:mt-8">
+                    <a href="#" class="inline-flex space-x-6">
+                        <span class="rounded-full bg-blue-500/10 px-3 py-1 text-sm font-semibold leading-6 text-blue-400 ring-1 ring-inset ring-blue-500/20">Smart Matching</span>
+                        <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-300">
+                            <span>AI-powered candidate ranking</span>
+                            <svg class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+                <h1 class="mt-10 text-4xl font-bold tracking-tight text-white sm:text-5xl">Smart Resume Matching System</h1>
+                <p class="mt-6 text-lg leading-8 text-gray-300">Upload multiple resumes and match them against your job description using advanced AI algorithms. Get ranked results with similarity scores to identify the best candidates quickly.</p>
+                
+                <!-- Form Section -->
+                <div class="mt-16 max-w-2xl mx-auto">
+                    <form action="/match_resumes" method="post" enctype="multipart/form-data" class="space-y-6">
+                        <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm border border-blue-300/20">
+                            <label for="job_description" class="block text-sm font-semibold text-blue-200 mb-3 text-left">Job Description</label>
+                            <textarea 
+                                class="w-full h-32 bg-white/10 border border-blue-300/30 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none" 
+                                id="job_description" 
+                                name="job_description" 
+                                placeholder="Paste your job description here..."
+                                required>{% if job_description %}{{ job_description }}{% endif %}</textarea>
+                        </div>
+                        
+                        <div class="bg-white/10 rounded-2xl p-6 backdrop-blur-sm border border-blue-300/20">
+                            <label for="resumes" class="block text-sm font-semibold text-blue-200 mb-3 text-left">Upload Resumes</label>
+                            <p class="text-gray-400 text-sm mb-4 text-left">Upload multiple resume files (PDF, DOCX, TXT supported)</p>
+                            <input 
+                                type="file" 
+                                class="w-full bg-white/10 font-semibold leading-6 text-gray-900 border border-blue-300 py-3 px-4 rounded-xl block text-sm text-slate-500
+                                file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0
+                                file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-400 hover:file:bg-blue-100" 
+                                id="resumes" 
+                                name="resumes" 
+                                multiple 
+                                required 
+                                accept=".pdf, .docx, .txt">
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-500 px-8 rounded-2xl py-3 text-sm font-semibold text-white shadow-sm hover:bg-blue-400/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors">
+                            Match Resumes
+                        </button>
+                    </form>
+                    
+                    <!-- Loading spinner overlay -->
+                    <div id="loadingSpinner" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                        <svg class="w-12 h-12 text-blue-500 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="w-screen h-full pb-6">
+        <div class="flex flex-col max-w-7xl mx-auto px-6 pt-6 sm:pt-16 text-white">
+            {% if error %}
+                <div class="bg-red-700 text-white text-base px-6 py-4 rounded-lg mb-6" role="alert">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                        </svg>
+                        <strong>Error:</strong> {{ error }}
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if results %}
+                <div class="bg-white/20 rounded-lg p-6 shadow mb-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-semibold text-blue-200">Matching Results</h2>
+                        <span class="bg-blue-500/20 text-blue-300 px-3 py-1 rounded-full text-sm">
+                            {{ total_resumes }} resumes analyzed
+                        </span>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        {% for result in results %}
+                            <div class="bg-white/10 rounded-lg p-4 border border-blue-300/20">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex-1">
+                                        <h3 class="font-semibold text-white text-lg">{{ result.filename }}</h3>
+                                        <div class="flex items-center mt-2">
+                                            <span class="text-gray-300 mr-3">Match Score:</span>
+                                            <div class="flex items-center">
+                                                <div class="w-32 bg-gray-700 rounded-full h-2.5 mr-3">
+                                                    <div class="bg-blue-500 h-2.5 rounded-full" style="width: {{ result.score }}%"></div>
+                                                </div>
+                                                <span class="text-blue-300 font-semibold">{{ result.score }}%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        {% if loop.index == 1 %}
+                                            <span class="bg-green-500/20 text-green-300 px-3 py-1 rounded-full text-sm font-medium">Best Match</span>
+                                        {% elif loop.index <= 3 %}
+                                            <span class="bg-yellow-500/20 text-yellow-300 px-3 py-1 rounded-full text-sm font-medium">Top {{ loop.index }}</span>
+                                        {% else %}
+                                            <span class="bg-gray-500/20 text-gray-300 px-3 py-1 rounded-full text-sm font-medium">Rank {{ loop.index }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="mt-6 p-4 bg-blue-500/10 rounded-lg border border-blue-300/20">
+                        <h4 class="text-blue-200 font-semibold mb-2">How to interpret these results:</h4>
+                        <ul class="text-gray-300 text-sm space-y-1">
+                            <li>• Higher scores indicate better alignment with the job description</li>
+                            <li>• Scores above 70% typically indicate strong candidates</li>
+                            <li>• Results are ranked by similarity score in descending order</li>
+                        </ul>
+                    </div>
+                </div>
+            {% else %}
+                {% if not error %}
+                    <div class="text-center text-gray-400 py-12">
+                        <svg class="w-16 h-16 mx-auto mb-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        <p class="text-lg">Upload resumes and job description to see matching results here.</p>
+                        <p class="text-sm mt-2">Our AI will analyze and rank candidates based on relevance.</p>
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+    const form = document.querySelector('form');
+    const spinner = document.getElementById('loadingSpinner');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    form.addEventListener('submit', () => {
+        spinner.classList.remove('hidden');
+    });
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    </script>
+</body>
+</html>
