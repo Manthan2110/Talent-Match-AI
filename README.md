@@ -12,6 +12,9 @@ Recruiters spend hours parsing resumes and manually shortlisting candidates. Thi
 ---
 
 ## 🌐 Website Preview  
+<img width="1918" height="1012" alt="image" src="https://github.com/user-attachments/assets/4cb4610c-a4a9-4e1d-8875-05020daba780" />
+<img width="1918" height="992" alt="image" src="https://github.com/user-attachments/assets/cb993160-d6f2-4ff7-a66b-b11c50e7e47c" />
+<img width="1891" height="993" alt="image" src="https://github.com/user-attachments/assets/1a79487e-7003-4c04-8b78-bd06636666cf" />
 
 ---
 
